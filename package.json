@@ -1,1 +1,8 @@
-{"name": "npx-is-cool", "version": "0.0.0", "bin": "./index.js"}
+{
+  "name": "npx-is-cool",
+  "version": "0.0.0",
+  "dependencies": {
+    "otplib": "^11.0.1"
+  },
+  "bin": "./index.js"
+}
