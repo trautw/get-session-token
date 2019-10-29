@@ -11,9 +11,13 @@ result[k] = mod[k];
 
 const otplib = __importStar(require("otplib"));
 
-console.log(process.argv[2]);
-# const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD'
-const secret = process.argv[2];
+const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD'
 const token = otplib.authenticator.generate(secret);
-
 console.log(token);
+console.log(token);
+
+console.log(process.argv[2]);
+const secret2 = process.argv[2];
+const token2 = otplib.authenticator.generate(secret2);
+
+console.log(token2);
