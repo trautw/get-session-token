@@ -12,6 +12,6 @@ result[k] = mod[k];
 const otplib = __importStar(require("otplib"));
 
 const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD'
-otplib.authenticator.generate(secret)
+const token = otplib.authenticator.generate(secret);
 
-console.log('yay git')
+console.log(token);
