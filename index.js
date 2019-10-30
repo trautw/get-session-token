@@ -23,6 +23,7 @@ console.log(token);
 
 const sessionInfoString = child_process.execSync(`aws sts get-session-token --profile ${sourceProfileName} --serial-number ${mfaSerial} --token-code ${token}`).toString();
 const sessionInfo = JSON.parse(sessionInfoString);
+const credentials = sessionInfo.Credentials;
 
 console.log(sessionInfo);
-console.log(sessionInfo.AccessKeyId);
+console.log(credentials.AccessKeyId);
