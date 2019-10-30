@@ -19,11 +19,12 @@ const profileSecrets = awsSecrets[sourceProfileName];
 const mfaSerial = awsConfig[`profile ${sourceProfileName}`].mfa_serial;
 const secret = profileSecrets.aws_mfa_secret;
 const token = otplib.authenticator.generate(secret);
-console.log(token);
 
 const sessionInfoString = child_process.execSync(`aws sts get-session-token --profile ${sourceProfileName} --serial-number ${mfaSerial} --token-code ${token}`).toString();
 const sessionInfo = JSON.parse(sessionInfoString);
 const credentials = sessionInfo.Credentials;
 
 console.log(sessionInfo);
-console.log(`export AWS_ACCESS_KEY_IS=${credentials.AccessKeyId}`);
+console.log(`export AWS_ACCESS_KEY_ID=${credentials.AccessKeyId}`);
+console.log(`export AWS_SECRET_ACCESS_KEY=${credentials.SecretAccessKey}`);
+console.log(`export AWS_SESSSION_TOKEN=${credentials.SessionToken}`);
