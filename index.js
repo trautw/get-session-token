@@ -11,6 +11,9 @@ result[k] = mod[k];
 
 const otplib = __importStar(require("otplib"));
 
+const profile = process.argv[2];
+console.log(`Profile: ${profile}`);
+
 const secret = process.argv[2];
 const token = otplib.authenticator.generate(secret);
 
