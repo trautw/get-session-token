@@ -16,13 +16,11 @@ const awsProfile = awsConfig[`profile ${profile}`];
 const sourceProfileName = awsProfile.source_profile;
 
 const profileSecrets = awsSecrets[sourceProfileName];
-console.log(profileSecrets);
 const mfaSerial = awsConfig[`profile ${sourceProfileName}`].mfa_serial;
-console.log(mfaSerial);
 const secret = profileSecrets.aws_mfa_secret;
 const token = otplib.authenticator.generate(secret);
 console.log(token);
 
-// const sessionInfo = child_process.execSync(`aws sts get-session-token --profile ${profile} --serial-number ${mfaSerial} --token-code ${token}`);
+const sessionInfo = child_process.execSync(`aws sts get-session-token --profile ${profile} --serial-number ${mfaSerial} --token-code ${token}`);
 
 console.log(sessionInfo);
