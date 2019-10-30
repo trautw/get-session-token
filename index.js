@@ -13,11 +13,11 @@ const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
 const awsProfile = awsConfig[`profile ${profile}`];
-const sourceProfile = awsProfile.source_profile;
+const sourceProfileName = awsProfile.source_profile;
 
-const profileSecrets = awsSecrets[sourceProfile];
+const profileSecrets = awsSecrets[sourceProfileName];
 console.log(profileSecrets);
-const mfaSerial = sourceProfile.mfa_serial;
+const mfaSerial = awsConfig[`profile ${sourceProfileName}`].mfa_serial;
 console.log(mfaSerial);
 const secret = profileSecrets.aws_mfa_secret;
 const token = otplib.authenticator.generate(secret);
