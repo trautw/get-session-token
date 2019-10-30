@@ -9,10 +9,16 @@ result[k] = mod[k];
     return result;
 };
 
+const loadIniFile = require('read-ini-file');
 const otplib = __importStar(require("otplib"));
+const path = require('path');
 
 const profile = process.argv[2];
 console.log(`Profile: ${profile}`);
+
+const awsSecretsFile = path.join(process.env['HOME'], '.aws/secrets');
+const awsSecrets = loadIniFile.sync(awsSecretsFile);
+console.log(awsSecrets);
 
 const secret = process.argv[2];
 const token = otplib.authenticator.generate(secret);
