@@ -26,4 +26,4 @@ const sessionInfo = JSON.parse(sessionInfoString);
 const credentials = sessionInfo.Credentials;
 
 console.log(sessionInfo);
-console.log(credentials.AccessKeyId);
+console.log(`export AWS_ACCESS_KEY_IS=${credentials.AccessKeyId}`);
