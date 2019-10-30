@@ -13,10 +13,10 @@ const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
 const awsProfile = awsConfig[`profile ${profile}`];
-console.log(awsProfile);
 const sourceProfile = awsProfile.source_profile;
 
 const profileSecrets = awsSecrets[sourceProfile];
+console.log(profileSecrets);
 const mfaSerial = sourceProfile.mfa_serial;
 console.log(mfaSerial);
 const secret = profileSecrets.aws_mfa_secret;
