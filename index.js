@@ -12,7 +12,7 @@ const awsSecrets = loadIniFile.sync(awsSecretsFile);
 const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
-const sourceProfile = awsConfig[profile}.source_profile;
+const sourceProfile = awsConfig[profile].source_profile;
 
 const profileSecrets = awsSecrets[sourceProfile];
 const mfaSerial = profileSecrets.mfa_serial;
