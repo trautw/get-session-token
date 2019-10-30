@@ -17,7 +17,8 @@ console.log(awsProfile);
 const sourceProfile = awsProfile.source_profile;
 
 const profileSecrets = awsSecrets[sourceProfile];
-const mfaSerial = profileSecrets.mfa_serial;
+const mfaSerial = sourceProfile.mfa_serial;
+console.log(mfaSerial);
 const secret = profileSecrets.aws_mfa_secret;
 const token = otplib.authenticator.generate(secret);
 console.log(token);
