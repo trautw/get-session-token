@@ -18,7 +18,8 @@ console.log(`Profile: ${profile}`);
 
 const awsSecretsFile = path.join(process.env['HOME'], '.aws', 'credentials');
 const awsSecrets = loadIniFile.sync(awsSecretsFile);
-console.log(awsSecrets);
+const profileSecrets = awsSecrets['mfa-ctraut-ctraut'];
+console.log(profileSecrets);
 
 const secret = process.argv[2];
 const token = otplib.authenticator.generate(secret);
