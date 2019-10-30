@@ -16,7 +16,7 @@ const path = require('path');
 const profile = process.argv[2];
 console.log(`Profile: ${profile}`);
 
-const awsSecretsFile = path.join(process.env['HOME'], '.aws/secrets');
+const awsSecretsFile = path.join(process.env['HOME'], '.aws', 'credentials');
 const awsSecrets = loadIniFile.sync(awsSecretsFile);
 console.log(awsSecrets);
 
