@@ -12,7 +12,6 @@ const awsSecrets = loadIniFile.sync(awsSecretsFile);
 const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
-console.log(awsConfig);
 const awsProfile = awsConfig[`profile ${profile}`];
 console.log(awsProfile);
 const sourceProfile = awsProfile.source_profile;
