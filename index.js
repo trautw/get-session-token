@@ -21,6 +21,6 @@ const secret = profileSecrets.aws_mfa_secret;
 const token = otplib.authenticator.generate(secret);
 console.log(token);
 
-const sessionInfo = child_process.execSync(`aws sts get-session-token --profile ${profile} --serial-number ${mfaSerial} --token-code ${token}`);
+const sessionInfo = child_process.execSync(`aws sts get-session-token --profile ${sourceProfileName} --serial-number ${mfaSerial} --token-code ${token}`);
 
 console.log(sessionInfo);
