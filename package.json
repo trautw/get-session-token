@@ -2,6 +2,8 @@
   "name": "npx-is-cool",
   "version": "0.0.0",
   "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-sdk": "^2.579.0",
     "otplib": "^11.0.1",
     "read-ini-file": "^2.0.0"
   },
