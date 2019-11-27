@@ -17,6 +17,8 @@ const awsSecretsFile = path.join(process.env['HOME'], '.aws', 'credentials');
 const awsSecrets = loadIniFile.sync(awsSecretsFile);
 
 const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
+console.log(`awsConfigFile: ${awsConfigFile}`);
+
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
 console.log(`awsConfig: ${awsConfig}`);
@@ -26,8 +28,8 @@ const awsProfile = awsConfig[`profile ${profile}`];
 console.log(`awsProfile: ${awsProfile}`);
 
 if (! awsProfile) {
-  console.log(`ERROR: aws profile [profile ${profile}] not set in your $HOME/.aws/config`);
-  retrurn;
+  console.log(`ERROR: aws profile [profile ${profile}] not set in your ${awsConfigFile}`);
+  return;
 };
 
 const sourceProfileName = awsProfile.source_profile;
