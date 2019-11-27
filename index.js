@@ -9,7 +9,9 @@ const awsAccount = process.argv[2];
 const awsRole = process.argv[3];
 const cmd = process.argv.slice(4).join(' ');
 
-const profile = `${awsAccount}-${awsRole}`;
+const profile = `${awsAccount}-${awsRole}`;o
+
+console.log(`profile: ${profile}`);
 
 const awsSecretsFile = path.join(process.env['HOME'], '.aws', 'credentials');
 const awsSecrets = loadIniFile.sync(awsSecretsFile);
