@@ -9,7 +9,7 @@ const awsAccount = process.argv[2];
 const awsRole = process.argv[3];
 const cmd = process.argv.slice(4).join(' ');
 
-const profile = `${awsAccount}-${awsRole}`;o
+const profile = `${awsAccount}-${awsRole}`;
 
 console.log(`profile: ${profile}`);
 
