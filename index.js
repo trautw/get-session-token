@@ -40,7 +40,11 @@ const secret = profileSecrets.aws_mfa_secret;
 
 AWS.config.credentials = new AWS.Credentials(profileSecrets.aws_access_key_id, profileSecrets.aws_secret_access_key);
 
+console.log(`secret: ${secret}`);
+
 const token = otplib.authenticator.generate(secret);
+console.log(`token: ${token}`);
+
 const sts = new AWS.STS();
 var params = {
   SerialNumber: mfaSerial, 
