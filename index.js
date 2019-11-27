@@ -20,6 +20,7 @@ const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
 const awsConfig = loadIniFile.sync(awsConfigFile);
 
 console.log(`awsConfig: ${awsConfig}`);
+console.log(`XXX: profile ${profile}`);
 
 const awsProfile = awsConfig[`profile ${profile}`];
 console.log(`awsProfile: ${awsProfile}`);
