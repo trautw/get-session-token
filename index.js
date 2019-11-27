@@ -11,21 +11,12 @@ const cmd = process.argv.slice(4).join(' ');
 
 const profile = `${awsAccount}-${awsRole}`;
 
-console.log(`profile: ${profile}`);
-
 const awsSecretsFile = path.join(process.env['HOME'], '.aws', 'credentials');
 const awsSecrets = loadIniFile.sync(awsSecretsFile);
 
 const awsConfigFile = path.join(process.env['HOME'], '.aws', 'config');
-console.log(`awsConfigFile: ${awsConfigFile}`);
-
 const awsConfig = loadIniFile.sync(awsConfigFile);
-
-console.log(`awsConfig: ${awsConfig}`);
-console.log(`XXX: profile ${profile}`);
-
 const awsProfile = awsConfig[`profile ${profile}`];
-console.log(`awsProfile: ${awsProfile}`);
 
 if (! awsProfile) {
   console.log(`ERROR: aws profile [profile ${profile}] not set in your ${awsConfigFile}`);
@@ -40,10 +31,7 @@ const secret = profileSecrets.aws_mfa_secret;
 
 AWS.config.credentials = new AWS.Credentials(profileSecrets.aws_access_key_id, profileSecrets.aws_secret_access_key);
 
-console.log(`secret: ${secret}`);
-
 const token = otplib.authenticator.generate(secret);
-console.log(`token: ${token}`);
 
 const sts = new AWS.STS();
 var params = {
