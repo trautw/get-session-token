@@ -25,6 +25,11 @@ console.log(`XXX: profile ${profile}`);
 const awsProfile = awsConfig[`profile ${profile}`];
 console.log(`awsProfile: ${awsProfile}`);
 
+if (! awsProfile) {
+  console.log(`ERROR: aws profile [profile ${profile}] not set in your $HOME/.aws/config`);
+  retrurn;
+};
+
 const sourceProfileName = awsProfile.source_profile;
 
 const profileSecrets = awsSecrets[sourceProfileName];
