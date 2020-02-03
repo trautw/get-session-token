@@ -1,5 +1,6 @@
 {
   "name": "in-account-with-role",
+  "license": "MIT",
   "version": "0.0.1",
   "dependencies": {
     "aws": "0.0.3-2",
